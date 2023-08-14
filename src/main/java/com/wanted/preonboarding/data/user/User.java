@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -25,6 +26,7 @@ public class User implements UserDetails {
     Long id;
 
     @Column(unique = true)
+    @Email
     private String email;
     private String password;
 
