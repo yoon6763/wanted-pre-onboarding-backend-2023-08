@@ -1,5 +1,6 @@
 package com.wanted.preonboarding.data.user;
 
+import com.wanted.preonboarding.data.user.dto.UserInfoDto;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -59,5 +60,12 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public UserInfoDto toUserInfoDto() {
+        return UserInfoDto.builder()
+                .id(id)
+                .email(email)
+                .build();
     }
 }
