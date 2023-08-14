@@ -4,6 +4,8 @@ import com.wanted.preonboarding.data.board.Board;
 import com.wanted.preonboarding.data.board.dto.BoardInfoDto;
 import com.wanted.preonboarding.data.board.dto.BoardRequestDto;
 import com.wanted.preonboarding.data.user.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface BoardService {
 
@@ -14,4 +16,6 @@ public interface BoardService {
     void updateBoard(String token, Long boardId, BoardRequestDto boardRequestDto);
 
     void deleteBoard(String token, Long boardId);
+
+    Page<BoardInfoDto> getPosts(Pageable pageable);
 }

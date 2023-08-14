@@ -26,7 +26,7 @@ public class User implements UserDetails {
     Long id;
 
     @Column(unique = true)
-    @Email
+    @Email(message = "유효한 이메일 주소 형식이어야 합니다.")
     private String email;
     private String password;
 

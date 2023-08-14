@@ -10,6 +10,9 @@ import com.wanted.preonboarding.repository.UserRepository;
 import com.wanted.preonboarding.service.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -57,5 +60,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public BoardInfoDto getBoard(Long boardId) {
         return boardRepository.findById(boardId).orElseThrow(() -> new RuntimeException("게시글이 존재하지 않습니다.")).toBoardInfoDto();
+    }
+
+    @Override
+    public Page<BoardInfoDto> getPosts(Pageable pageable) {
+        return boardRepository.findAll(pageable).map(Board::toBoardInfoDto);
     }
 }
