@@ -1,9 +1,7 @@
 package com.wanted.preonboarding.service;
 
-import com.wanted.preonboarding.data.board.Board;
-import com.wanted.preonboarding.data.board.dto.BoardInfoDto;
-import com.wanted.preonboarding.data.board.dto.BoardRequestDto;
-import com.wanted.preonboarding.data.user.User;
+import com.wanted.preonboarding.entity.board.dto.BoardInfoDto;
+import com.wanted.preonboarding.entity.board.dto.BoardRequestDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

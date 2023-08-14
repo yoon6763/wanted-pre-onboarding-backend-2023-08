@@ -1,7 +1,7 @@
-package com.wanted.preonboarding.config.security;
+package com.wanted.preonboarding.exception.handler.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wanted.preonboarding.data.common.EntryPointErrorResponse;
+import com.wanted.preonboarding.entity.common.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
@@ -21,12 +21,15 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
         ObjectMapper objectMapper = new ObjectMapper();
         LOGGER.info("[commence] 인증 실패로 response.sendError 발생");
 
-        EntryPointErrorResponse entryPointErrorResponse = new EntryPointErrorResponse();
-        entryPointErrorResponse.setMsg("인증이 실패하였습니다.");
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .statusCode(401)
+                .errorType("Unauthorized")
+                .path(httpServletRequest.getRequestURI())
+                .build();
 
         httpServletResponse.setStatus(401);
         httpServletResponse.setContentType("application/json");
         httpServletResponse.setCharacterEncoding("utf-8");
-        httpServletResponse.getWriter().write(objectMapper.writeValueAsString(entryPointErrorResponse));
+        httpServletResponse.getWriter().write(objectMapper.writeValueAsString(errorResponse));
     }
 }

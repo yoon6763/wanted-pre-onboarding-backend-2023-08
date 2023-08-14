@@ -1,4 +1,4 @@
-package com.wanted.preonboarding.data.user.dto;
+package com.wanted.preonboarding.entity.user.dto;
 
 import lombok.*;
 

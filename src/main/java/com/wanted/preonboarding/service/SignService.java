@@ -1,9 +1,8 @@
 package com.wanted.preonboarding.service;
 
-import com.wanted.preonboarding.data.user.dto.SignInResultDto;
-import com.wanted.preonboarding.data.user.dto.SignUpResultDto;
+import com.wanted.preonboarding.entity.user.dto.SignInResultDto;
 
 public interface SignService {
-    SignUpResultDto signUp(String email, String password);
+    void signUp(String email, String password);
     SignInResultDto signIn(String email, String password) throws RuntimeException;
 }

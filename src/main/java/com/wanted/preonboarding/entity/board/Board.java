@@ -1,8 +1,8 @@
-package com.wanted.preonboarding.data.board;
+package com.wanted.preonboarding.entity.board;
 
-import com.wanted.preonboarding.data.board.dto.BoardInfoDto;
-import com.wanted.preonboarding.data.board.dto.BoardRequestDto;
-import com.wanted.preonboarding.data.user.User;
+import com.wanted.preonboarding.entity.board.dto.BoardInfoDto;
+import com.wanted.preonboarding.entity.board.dto.BoardRequestDto;
+import com.wanted.preonboarding.entity.user.User;
 import lombok.*;
 
 import javax.persistence.*;

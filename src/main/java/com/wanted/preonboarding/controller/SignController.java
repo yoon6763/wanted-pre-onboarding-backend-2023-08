@@ -1,7 +1,7 @@
 package com.wanted.preonboarding.controller;
 
-import com.wanted.preonboarding.data.user.dto.SignInResultDto;
-import com.wanted.preonboarding.data.user.dto.SignUpResultDto;
+import com.wanted.preonboarding.entity.common.MessageResponse;
+import com.wanted.preonboarding.entity.user.dto.SignInResultDto;
 import com.wanted.preonboarding.service.SignService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,38 +30,21 @@ class SignController {
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) throws RuntimeException {
         LOGGER.info("[signIn] 로그인을 시도하고 있습니다. id : {}, pw : ****", email);
-        SignInResultDto signInResultDto = signService.signIn(email, password);
 
-        if (signInResultDto.getCode() == 0) {
-            LOGGER.info("[signIn] 정상적으로 로그인되었습니다. id : {}, token : {}", email, signInResultDto.getToken());
-        }
+        SignInResultDto signInResultDto = signService.signIn(email, password);
+        LOGGER.info("[signIn] 정상적으로 로그인되었습니다. id : {}, token : {}", email, signInResultDto.getToken());
+
         return signInResultDto;
     }
 
     @PostMapping(value = "/sign-up")
-    public SignUpResultDto signUp(
+    public ResponseEntity<Object> signUp(
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) {
 
         LOGGER.info("[signUp] 회원가입을 수행합니다. id : {}, password : ****", email);
-        SignUpResultDto signUpResultDto = signService.signUp(email, password);
 
-        LOGGER.info("[signUp] 회원가입을 완료했습니다. id : {}", email);
-        return signUpResultDto;
-    }
-
-    @ExceptionHandler(value = RuntimeException.class)
-    public ResponseEntity<Map<String, String>> ExceptionHandler(RuntimeException e) {
-        HttpHeaders responseHeaders = new HttpHeaders();
-        HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
-
-        LOGGER.error("ExceptionHandler 호출, {}, {}", e.getCause(), e.getMessage());
-
-        Map<String, String> map = new HashMap<>();
-        map.put("error type", httpStatus.getReasonPhrase());
-        map.put("code", "400");
-        map.put("message", "에러 발생");
-
-        return new ResponseEntity<>(map, responseHeaders, httpStatus);
+        signService.signUp(email, password);
+        return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse("회원가입 성공"));
     }
 }

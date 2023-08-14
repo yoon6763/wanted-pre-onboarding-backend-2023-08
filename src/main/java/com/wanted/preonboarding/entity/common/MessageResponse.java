@@ -1,4 +1,4 @@
-package com.wanted.preonboarding.data.common;
+package com.wanted.preonboarding.entity.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +9,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class EntryPointErrorResponse {
-    private String msg;
+public class MessageResponse {
+    private String message;
 }

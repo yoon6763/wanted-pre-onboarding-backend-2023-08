@@ -1,6 +1,6 @@
-package com.wanted.preonboarding.data.board.dto;
+package com.wanted.preonboarding.entity.board.dto;
 
-import com.wanted.preonboarding.data.user.dto.UserInfoDto;
+import com.wanted.preonboarding.entity.user.dto.UserInfoDto;
 import lombok.*;
 
 @Getter

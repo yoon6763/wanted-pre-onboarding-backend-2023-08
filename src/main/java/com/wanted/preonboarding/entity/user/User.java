@@ -1,7 +1,8 @@
-package com.wanted.preonboarding.data.user;
+package com.wanted.preonboarding.entity.user;
 
-import com.wanted.preonboarding.data.user.dto.UserInfoDto;
+import com.wanted.preonboarding.entity.user.dto.UserInfoDto;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

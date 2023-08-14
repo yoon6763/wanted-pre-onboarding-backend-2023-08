@@ -1,4 +1,4 @@
-package com.wanted.preonboarding.config.security;
+package com.wanted.preonboarding.exception.handler.auth;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
