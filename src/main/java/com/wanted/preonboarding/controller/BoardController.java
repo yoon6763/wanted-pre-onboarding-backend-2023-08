@@ -2,6 +2,7 @@ package com.wanted.preonboarding.controller;
 
 import com.wanted.preonboarding.entity.board.dto.BoardInfoDto;
 import com.wanted.preonboarding.entity.board.dto.BoardRequestDto;
+import com.wanted.preonboarding.entity.common.MessageResponse;
 import com.wanted.preonboarding.service.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +25,14 @@ public class BoardController {
     }
 
     @PostMapping
-    public String createBoard(
+    public ResponseEntity<MessageResponse> createBoard(
             @RequestHeader String token,
             @RequestBody BoardRequestDto boardRequestDto) {
 
         log.info("[createBoard] 게시글을 생성합니다. token : {}", token);
         log.info("[createBoard] 게시글을 생성합니다. title : {}, content : {}", boardRequestDto.getTitle(), boardRequestDto.getContent());
         boardService.createBoard(token, boardRequestDto);
-        return "success";
+        return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse("게시글 생성 성공"));
     }
 
     @GetMapping(value = "/{boardId}")
@@ -46,21 +47,21 @@ public class BoardController {
     }
 
     @PutMapping(value = "/{boardId}")
-    public String updateBoard(
+    public ResponseEntity<MessageResponse> updateBoard(
             @RequestHeader String token,
             @PathVariable Long boardId,
             @RequestBody BoardRequestDto boardRequestDto) {
 
         boardService.updateBoard(token, boardId, boardRequestDto);
-        return "success";
+        return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse("게시글 수정 성공"));
     }
 
     @DeleteMapping(value = "/{boardId}")
-    public String deleteBoard(
+    public ResponseEntity<MessageResponse> deleteBoard(
             @RequestHeader String token,
             @PathVariable Long boardId) {
 
         boardService.deleteBoard(token, boardId);
-        return "success";
+        return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse("게시글 삭제 성공"));
     }
 }
