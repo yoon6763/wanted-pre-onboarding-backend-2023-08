@@ -48,4 +48,13 @@ public class BoardController {
         boardService.updateBoard(token, boardId, boardRequestDto);
         return "success";
     }
+
+    @DeleteMapping(value = "/{boardId}")
+    public String deleteBoard(
+            @RequestHeader String token,
+            @PathVariable Long boardId) {
+
+        boardService.deleteBoard(token, boardId);
+        return "success";
+    }
 }
