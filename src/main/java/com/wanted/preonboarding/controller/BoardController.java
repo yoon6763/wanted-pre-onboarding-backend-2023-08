@@ -33,18 +33,19 @@ public class BoardController {
         return "success";
     }
 
-    @GetMapping
-    public ResponseEntity<BoardInfoDto> getBoard(
-            @RequestParam(value = "boardId") Long boardId) {
-
+    @GetMapping(value = "/{boardId}")
+    public ResponseEntity<BoardInfoDto> getBoard(@PathVariable Long boardId) {
         BoardInfoDto board = boardService.getBoard(boardId);
-        log.info("[getBoard] 게시글을 조회합니다. boardId : {}", board.getId());
-        log.info("[getBoard] 게시글을 조회합니다. boardTitle : {}", board.getTitle());
-        log.info("[getBoard] 게시글을 조회합니다. boardContent : {}", board.getContent());
-//        log.info("[getBoard] 게시글을 조회합니다. boardAuthor : {}", board.getUser().getEmail());
-
         return ResponseEntity.status(HttpStatus.OK).body(board);
     }
 
+    @PutMapping(value = "/{boardId}")
+    public String updateBoard(
+            @RequestHeader String token,
+            @PathVariable Long boardId,
+            @RequestBody BoardRequestDto boardRequestDto) {
 
+        boardService.updateBoard(token, boardId, boardRequestDto);
+        return "success";
+    }
 }

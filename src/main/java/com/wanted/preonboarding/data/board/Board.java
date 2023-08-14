@@ -26,6 +26,11 @@ public class Board {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public void update(BoardRequestDto boardRequestDto) {
+        this.title = boardRequestDto.getTitle();
+        this.content = boardRequestDto.getContent();
+    }
+
     public static Board createBoard(User user, BoardRequestDto boardRequestDto) {
         return Board.builder()
                 .title(boardRequestDto.getTitle())

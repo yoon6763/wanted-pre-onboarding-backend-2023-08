@@ -37,12 +37,21 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void updateBoard(String token, Long boardId, BoardRequestDto boardRequestDto) {
+        Board board = boardRepository.findById(boardId).orElseThrow(() -> new RuntimeException("게시글이 존재하지 않습니다."));
+        User user = userRepository.getByEmail(jwtTokenProvider.getUsername(token));
 
+        if (!board.getUser().getEmail().equals(user.getEmail())) {
+            throw new RuntimeException("게시글 작성자가 아닙니다.");
+        }
+
+        board.update(boardRequestDto);
+        boardRepository.save(board);
     }
 
     @Override
     public void deleteBoard(String token, Long boardId) {
-
+        Board board = boardRepository.findById(boardId).orElseThrow(() -> new RuntimeException("게시글이 존재하지 않습니다."));
+        boardRepository.delete(board);
     }
 
     @Override
