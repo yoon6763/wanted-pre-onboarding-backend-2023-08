@@ -1,10 +1,9 @@
-# 원티드 프리온보딩 사전과제 제출 | wanted-pre-onboarding
-<br>
+# 원티드 프리온보딩 사전과제 제출<br>
 자바 언어와 스프링, 스프링부트를 통해 개발된 애플리케이션 입니다.
 <br><br><br>
 
 ### 지원자 이름 : 전윤호 <br>
-<br><br>
+<br>
 
 ### 애플리케이션 실행 방법 <br>
 1. 해당 레포지토리를 git clone 합니다.
@@ -37,5 +36,8 @@ Postman으로 작성한 API 명세서입니다.<br>
 Request, Response 예시를 포함되어 있습니다.<br>
 <br><br><br><br>
 
-### AWS 관련 자료 <br>
-<br>
+### AWS
+배포중인 AWS 주소 : 3.36.5.198 <br>
+API 요청 예시 : http://3.36.5.198:8080/sign-api/sign-in <br>
+![image](https://github.com/yoon6763/wanted-pre-onboarding-backend/assets/74063259/e516ab02-645e-48cc-91fa-95a289c78f58)
+
