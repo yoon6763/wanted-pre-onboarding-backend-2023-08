@@ -1,6 +1,7 @@
 package com.wanted.preonboarding.exception.handler;
 
 import com.wanted.preonboarding.entity.common.ErrorResponse;
+import com.wanted.preonboarding.exception.board.BoardException;
 import com.wanted.preonboarding.exception.user.UserException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -14,18 +15,18 @@ import java.util.List;
 
 @Slf4j
 @RestControllerAdvice
-public class UserExceptionHandler {
+public class BoardExceptionHandler {
 
-    @ExceptionHandler(UserException.class)
-    public ResponseEntity<ErrorResponse> userExceptionHandler(
-            UserException e, HttpServletRequest request
+    @ExceptionHandler(BoardException.class)
+    public ResponseEntity<ErrorResponse> boardExceptionHandler(
+            BoardException e, HttpServletRequest request
     ) {
         List<String> messages = new ArrayList<>();
-        messages.add(e.getUserErrorCode().getMessage());
+        messages.add(e.getBoardErrorCode().getMessage());
         log.error("Messages = {}", messages);
 
         ErrorResponse errorResponseDto = createErrorResponseDto(
-                e.getUserErrorCode().getHttpStatus(), messages, request);
+                e.getBoardErrorCode().getHttpStatus(), messages, request);
         return ResponseEntity.status(errorResponseDto.getStatusCode()).body(errorResponseDto);
     }
 
