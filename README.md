@@ -1,6 +1,6 @@
 # 원티드 프리온보딩 사전과제 제출 | wanted-pre-onboarding
 <br>
-스프링과 스프링부트를 통해 개발된 애플리케이션 입니다.
+자바 언어와 스프링, 스프링부트를 통해 개발된 애플리케이션 입니다.
 <br><br><br>
 
 ### 지원자 이름 : 전윤호 <br>
@@ -29,10 +29,13 @@ Entity는 데이터베이스의 테이블과 매핑되는 객체이며, 클라�
 사용자에게 요청이 오면, 이를 Controller가 받아 Service를 호출합니다. <br>
 Service는 비즈니스 로직을 처리하고, 결과값을 DTO 등에 담아 Controller에 넘겨준 뒤, <br>
 Controller는 사용자에게 응답을 보냅니다.<br>
-<br>
+<br><br><br><br>
 
-### API 명세서 <br>
-<br>
+### API 명세서
+https://documenter.getpostman.com/view/18970893/2s9Xy6qAH5 <br>
+Postman으로 작성한 API 명세서입니다.<br>
+Request, Response 예시를 포함되어 있습니다.<br>
+<br><br><br><br>
 
 ### AWS 관련 자료 <br>
 <br>
