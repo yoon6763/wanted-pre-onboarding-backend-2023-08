@@ -7,9 +7,9 @@
 
 ### 애플리케이션 실행 방법 <br>
 1. 해당 레포지토리를 git clone 합니다.
-2. preonboarding > src > main > resources > application.properties에서
-   spring.datasource.url에 데이터베이스 이름을 입력합니다.
-   spring.datasource.username 및 spring.datasource.password에 유저네임 및 패스워드를 입력합니다.
+2. preonboarding > src > main > resources > application.properties에서 <br>
+   spring.datasource.url에 데이터베이스 이름을 입력합니다. <br>
+   spring.datasource.username 및 spring.datasource.password에 유저네임 및 패스워드를 입력합니다. <br>
 4. clone한 디렉토리로 들어가 터미널을 열고 ./gradlew bootRun 명령어를 입력하여 실행시킵니다.
 5. 엔드포인트 <br>
 포트번호 : 8080 <br>
