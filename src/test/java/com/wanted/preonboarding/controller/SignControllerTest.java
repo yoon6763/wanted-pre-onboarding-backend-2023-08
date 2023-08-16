@@ -21,9 +21,6 @@ class SignControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    @Autowired
-    UserRepository userRepository;
-
     @Test
     @DisplayName("회원가입 성공")
     void signUpSuccess() throws Exception {
